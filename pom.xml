@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.7</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.proptech</groupId>
+	<artifactId>customer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>customer</name>
+	<description>customer profile manager for proptech</description>
+    <packaging>jar</packaging>
+	<properties>
+		<java.version>1.8</java.version>
+        <!-- <sonar.language>java</sonar.language> -->
+        <!-- <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding> -->
+        <!-- <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin> -->
+        <!-- <jacoco.version>0.7.9</jacoco.version> -->
+        <!-- <sonar-jacoco-listeners.version>3.2</sonar-jacoco-listeners.version> -->
+        <!-- <jacoco.outputDir>${project.build.directory}</jacoco.outputDir> -->
+        <!-- <jacoco.out.ut.file>jacoco.exec</jacoco.out.ut.file> -->
+        <!-- <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath> -->
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <!-- <sonar.coverage.exclusions>**/enums/**,**/model/**,**/util/**,**/constants/**,**/AccountParticipantDoc.java,**/CPMUtil.java, **/CustomerCallbackRequestDBO.java,**/KongAdapterImpl.java,**/SMSDetails.java,**/ValidationUtil.java,**/CPMServiceImpl.java,**/CPMController.java, **/RestUtil.java,**/AppUtil.java, **/ReportingAdapterImpl.java</sonar.coverage.exclusions> -->
+	</properties>
+	<dependencies>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-to-slf4j</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
+		<!-- <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.7</version>
+        </dependency> -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- <dependency>
+            <groupId>org.codehaus.sonar-plugins.java</groupId>
+            <artifactId>sonar-jacoco-listeners</artifactId>
+            <version>${sonar-jacoco-listeners.version}</version>
+            <scope>test</scope>
+        </dependency> -->
+
+
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- dependency for mongo -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>com.airtel.online</groupId>
+            <artifactId>airtel-exception-framework</artifactId>
+            <version>0.0.10-SNAPSHOT</version>
+        </dependency> -->
+
+        <!-- <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency> -->
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>com.airtel.smartapi</groupId>
+            <artifactId>smartapi-logging-core</artifactId>
+            <version>2.3.1-RELEASE</version>
+        </dependency> -->
+
+        <!-- <dependency>
+            <groupId>com.airtel</groupId>
+            <artifactId>ironman-commons</artifactId>
+            <version>0.0.95-SNAPSHOT</version>
+        </dependency> -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <!-- <dependency>
+            <groupId>com.airtel.aerospike</groupId>
+            <artifactId>aerospike</artifactId>
+            <version>0.0.11-SNAPSHOT</version>
+        </dependency> -->
+        <!-- <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter</artifactId>
+        </dependency> -->
+        <!-- <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency> -->
+
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency> -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>3.0.0</version>
+         </dependency>
+         <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+         </dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
